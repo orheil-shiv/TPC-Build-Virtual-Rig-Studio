@@ -666,7 +666,7 @@ class TPCBuildApp {
               </div>
             </div>
 
-            <button data-select-category="${cat.id}" class="px-3 py-1.5 rounded-lg ${part ? 'bg-slate-800 hover:bg-slate-700 text-slate-200' : 'bg-blue-600 hover:bg-blue-500 text-white font-semibold'} text-xs transition-colors whitespace-nowrap shadow-sm">
+            <button data-select-category="${cat.id}" class="px-3.5 py-2 min-h-[36px] flex items-center justify-center rounded-lg ${part ? 'bg-slate-800 hover:bg-slate-700 text-slate-200' : 'bg-blue-600 hover:bg-blue-500 text-white font-semibold'} text-xs transition-colors whitespace-nowrap shadow-sm flex-shrink-0">
               ${part ? 'Change' : 'Choose +'}
             </button>
           </div>
@@ -684,16 +684,16 @@ class TPCBuildApp {
               </div>
 
               <!-- Direct Retail Links -->
-              <div class="flex items-center justify-between pt-1 text-xs">
+              <div class="flex flex-wrap items-center justify-between pt-1 gap-1.5 text-xs">
                 <div class="text-slate-400 text-[11px]">Direct Store Links:</div>
                 <div class="flex items-center space-x-2">
-                  <a href="${part.links.amazon}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 font-bold border border-amber-500/20 transition-colors">
+                  <a href="${part.links.amazon}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 min-h-[30px] inline-flex items-center rounded bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 font-bold border border-amber-500/20 transition-colors">
                     Amazon ↗
                   </a>
-                  <a href="${part.links.newegg}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-orange-500/10 text-orange-400 hover:bg-orange-500/20 font-bold border border-orange-500/20 transition-colors">
+                  <a href="${part.links.newegg}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 min-h-[30px] inline-flex items-center rounded bg-orange-500/10 text-orange-400 hover:bg-orange-500/20 font-bold border border-orange-500/20 transition-colors">
                     Newegg ↗
                   </a>
-                  <button data-remove-part="${cat.id}" class="text-slate-500 hover:text-red-400 p-1 transition-colors" title="Remove part">
+                  <button data-remove-part="${cat.id}" class="text-slate-500 hover:text-red-400 p-1.5 min-w-[30px] min-h-[30px] inline-flex items-center justify-center transition-colors" title="Remove part">
                     <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
                   </button>
                 </div>
@@ -1206,11 +1206,11 @@ class TPCBuildApp {
             </div>
           </div>
 
-          <div class="flex items-center space-x-2">
-            <a href="${part.links.amazon}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 font-bold text-xs border border-amber-500/20 transition-colors">
+          <div class="flex items-center space-x-2 w-full sm:w-auto justify-end pt-1 sm:pt-0">
+            <a href="${part.links.amazon}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 min-h-[36px] inline-flex items-center justify-center rounded bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 font-bold text-xs border border-amber-500/20 transition-colors">
               Amazon ↗
             </a>
-            <button data-select-part-id="${part.id}" class="px-4 py-1.5 rounded-lg ${isSelected ? 'bg-slate-700 text-slate-300' : 'bg-blue-600 hover:bg-blue-500 text-white font-semibold'} text-xs transition-colors shadow-sm">
+            <button data-select-part-id="${part.id}" class="flex-1 sm:flex-initial px-4 py-2 min-h-[36px] flex items-center justify-center rounded-lg ${isSelected ? 'bg-slate-700 text-slate-300' : 'bg-blue-600 hover:bg-blue-500 text-white font-bold'} text-xs transition-colors shadow-sm">
               ${isSelected ? 'Selected' : 'Equip Part'}
             </button>
           </div>

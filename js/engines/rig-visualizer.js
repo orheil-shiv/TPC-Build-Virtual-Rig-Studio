@@ -32,9 +32,11 @@ export class RigVisualizer {
 
   resize() {
     if (!this.canvas) return;
-    const rect = this.canvas.parentElement.getBoundingClientRect();
-    this.canvas.width = rect.width || 600;
-    this.canvas.height = 460;
+    const rect = this.canvas.parentElement ? this.canvas.parentElement.getBoundingClientRect() : { width: 600 };
+    const w = rect.width || 600;
+    const h = Math.min(460, Math.max(260, Math.round(w * 0.65)));
+    this.canvas.width = w;
+    this.canvas.height = h;
   }
 
   setBuild(buildState) {
@@ -76,8 +78,17 @@ export class RigVisualizer {
   draw() {
     if (!this.ctx || !this.canvas) return;
     const ctx = this.ctx;
-    const w = this.canvas.width;
-    const h = this.canvas.height;
+    const cw = this.canvas.width;
+    const ch = this.canvas.height;
+    ctx.clearRect(0, 0, cw, ch);
+
+    ctx.save();
+    const refW = 600;
+    const refH = 460;
+    ctx.scale(cw / refW, ch / refH);
+
+    const w = refW;
+    const h = refH;
     const theme = RGB_THEMES[this.currentTheme];
 
     // Clear background
@@ -423,6 +434,7 @@ export class RigVisualizer {
       }
       ctx.restore();
     }
+    ctx.restore();
   }
 
   drawFan(x, y, radius, theme) {
