@@ -1,0 +1,330 @@
+/* TPC BUILD - Professional Hardware Engineering Studio */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Dark Mode Default (Obsidian Slate) - UNTOUCHED */
+  --bg-main: #0b0f19;
+  --bg-card: #111827;
+  --bg-card-subtle: #1a2234;
+  --border-color: rgba(255, 255, 255, 0.09);
+  --border-hover: rgba(255, 255, 255, 0.20);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --primary-accent: #3b82f6;
+  --primary-bg: rgba(59, 130, 246, 0.12);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* Light Mode (Trovex-inspired clean, soft, readable SaaS aesthetic) */
+html.light {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --primary-accent: #2563eb;
+  --primary-bg: #eff6ff;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light Mode Ambient Canvas & Structural Elements */
+html.light body {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 100% 0%, rgba(224, 231, 255, 0.45) 0px, transparent 45%),
+    radial-gradient(at 0% 20%, rgba(243, 232, 255, 0.40) 0px, transparent 40%);
+  color: #0f172a;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+html.light footer {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+html.light .glass-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 10px -2px rgba(99, 102, 241, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+html.light .glass-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 8px 20px -3px rgba(99, 102, 241, 0.07), 0 3px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+/* Light Mode Structural Overrides */
+html.light .bg-slate-900,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-950,
+html.light .bg-slate-950\/30,
+html.light .bg-slate-950\/40,
+html.light .bg-slate-950\/60 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Light Mode for Slate 800 backgrounds - Prevents dark-on-dark bug */
+html.light .bg-slate-800,
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/70,
+html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/90 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light .border-slate-800,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/80,
+html.light .border-slate-700,
+html.light .border-slate-700\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .text-slate-100,
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200,
+html.light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* ============================================================= */
+/* HARDWARE PILL TAGS - 100% READABLE IN BOTH MODES             */
+/* ============================================================= */
+.part-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  transition: all 0.15s ease;
+  user-select: none;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+/* Dark Mode - Keep exact look intact */
+html.dark .part-pill-tag,
+:root:not(.light) .part-pill-tag {
+  background-color: rgba(30, 41, 59, 0.85);
+  color: #cbd5e1;
+  border: 1px solid rgba(51, 65, 85, 0.7);
+}
+html.dark .part-pill-tag:hover,
+:root:not(.light) .part-pill-tag:hover {
+  background-color: #334155;
+  color: #ffffff;
+  border-color: #64748b;
+}
+
+/* Light Mode - Crisp, clean, readable modern SaaS pill tags */
+html.light .part-pill-tag {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important; /* Rich deep slate for high contrast */
+  border: 1px solid #cbd5e1 !important; /* Defined clean border */
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+html.light .part-pill-tag:hover {
+  background-color: #e2e8f0 !important;
+  color: #000000 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* ============================================================= */
+/* MODAL FILTER TAG CHIPS                                        */
+/* ============================================================= */
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+/* Dark Mode Tag Chips */
+html.dark .tag-chip,
+:root:not(.light) .tag-chip {
+  background-color: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+html.dark .tag-chip:hover,
+:root:not(.light) .tag-chip:hover {
+  border-color: #475569;
+  color: #f8fafc;
+}
+html.dark .tag-chip.active,
+:root:not(.light) .tag-chip.active {
+  background-color: rgba(59, 130, 246, 0.25);
+  border-color: #3b82f6;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* Light Mode Tag Chips - Clean & High Contrast */
+html.light .tag-chip {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+html.light .tag-chip:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+html.light .tag-chip.active {
+  background-color: #eff6ff !important;
+  border-color: #2563eb !important;
+  color: #1d4ed8 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Modal Search Input in Light Mode */
+html.light #partSearchInput {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.light #partSearchInput::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Modal Parts List item styling in Light Mode */
+html.light #modalPartsList > div {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+html.light #modalPartsList > div:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Top Geolocation Bar in Light Mode */
+html.light #detectedLocationBadge span {
+  color: #0f172a !important;
+}
+html.light #detectLocationBtn {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #2563eb !important;
+}
+html.light #countryCurrencySelect {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Card Styling Base */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glass-card-hover {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Modern Tab Transitions */
+.tab-btn {
+  position: relative;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  border-bottom: 2px solid transparent;
+}
+.tab-btn.active {
+  color: var(--primary-accent) !important;
+  border-bottom-color: var(--primary-accent) !important;
+}
+
+/* Power Button & Chassis Controls */
+.chassis-power-btn {
+  transition: all 0.15s ease;
+}
+.chassis-power-btn:active {
+  transform: scale(0.96);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle thermal status dots */
+.temp-dot-cool { background-color: #10b981; }
+.temp-dot-warm { background-color: #f59e0b; }
+.temp-dot-hot { background-color: #ef4444; }

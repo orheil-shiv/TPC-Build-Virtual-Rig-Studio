@@ -1,0 +1,16 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE Folders
+.vscode/
+.idea/
+
+# Node & Vercel
+node_modules/
+.vercel/
+
+# Temporary Python Scripts
+*.py
+__pycache__/
+*.pyc
